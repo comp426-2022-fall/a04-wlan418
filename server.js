@@ -32,15 +32,15 @@ app.get('/app/roll/', (req, res, next) => {
 })
 
 app.post('/app/roll/', (req, res) => {
-	const sides = req.body.sides
-	const dice = req.body.dice
-	const rolls = req.body.rolls
+	const sides = parseInt(req.body.sides)
+	const dice = parseInt(req.body.dice)
+	const rolls = parseInt(req.body.rolls)
 	const results = rollDice(sides, dice, rolls)
 	res.status(200).json({"sides": sides, "dice": dice, "rolls": rolls, "results": results})
 })
 
 app.get('/app/roll/:sides/', (req, res, next) => {
-	const sides = req.params.sides
+	const sides = parseInt(req.params.sides)
 	const dice = 2
 	const rolls = 1
 	const results = rollDice(sides, dice, rolls)
@@ -48,8 +48,8 @@ app.get('/app/roll/:sides/', (req, res, next) => {
 })
 
 app.get('/app/roll/:sides/:dice/', (req, res, next) => {
-	const sides = req.params.sides
-	const dice = req.params.dice
+	const sides = parseInt(req.params.sides)
+	const dice = parseInt(req.params.dice)
 	const rolls = 1
 	const results = rollDice(sides, dice, rolls)
 	res.status(200).json({"sides": sides, "dice": dice, "rolls": rolls, "results": results})
@@ -57,9 +57,9 @@ app.get('/app/roll/:sides/:dice/', (req, res, next) => {
 })
 
 app.get('/app/roll/:sides/:dice/:rolls/', (req, res, next) => {
-	const sides = req.params.sides
-	const dice = req.params.dice
-	const rolls = req.params.rolls
+	const sides = parseInt(req.params.sides)
+	const dice = parseInt(req.params.dice)
+	const rolls = parseInt(req.params.rolls)
 	const results = rollDice(sides, dice, rolls)
 	res.status(200).json({"sides": sides, "dice": dice, "rolls": rolls, "results": results})
 })
